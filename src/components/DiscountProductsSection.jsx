@@ -10,8 +10,8 @@ export default function DiscountProductsSection({ products = [], onAddToCart }) 
   const discounted = products.filter((prod) => prod.discount > 0).slice(0, 6);
 
   return (
-    <section className="my-10 w-full px-2 sm:px-4 md:px-8">
-      <div className="max-w-6xl mx-auto rounded-2xl p-4 sm:p-8 bg-gradient-to-br from-pink-50 via-white to-yellow-50 shadow-lg">
+    <section className="mt-4 lg:pl-10 lg:pr-10">
+      <div className="w-full rounded-2xl p-4 sm:p-8 bg-gradient-to-br from-pink-50 via-white to-yellow-50 shadow-lg">
         <h2 className="text-2xl sm:text-3xl font-extrabold mb-8 text-pink-700 text-center tracking-tight drop-shadow">Discounted Products</h2>
         {discounted.length === 0 ? (
           <div className="text-center text-gray-400">No discounted products available.</div>

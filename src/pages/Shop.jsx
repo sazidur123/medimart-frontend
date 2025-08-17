@@ -12,6 +12,7 @@ function Shop({ onAddToCart }) {
   const [loading, setLoading] = useState(true);
   const [selectedMedicine, setSelectedMedicine] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [sort, setSort] = useState("price_asc"); // NEW: sorting state
 
   useEffect(() => {
     const fetchMedicines = async () => {
@@ -27,6 +28,13 @@ function Shop({ onAddToCart }) {
     };
     fetchMedicines();
   }, []);
+
+  // Sorting logic
+  const sortedMedicines = [...medicines].sort((a, b) => {
+    if (sort === "price_asc") return a.price - b.price;
+    if (sort === "price_desc") return b.price - a.price;
+    return 0;
+  });
 
   const handleEyeClick = (medicine) => {
     setSelectedMedicine(medicine);
@@ -49,18 +57,31 @@ function Shop({ onAddToCart }) {
       <Toaster position="top-right" />
       <h2 className="text-3xl font-bold mb-6 text-primary">Shop Medicines</h2>
 
+      {/* Sorting controls */}
+      <div className="flex flex-wrap gap-2 mb-4 items-center">
+        <label className="font-semibold">Sort by:</label>
+        <select
+          className="select select-bordered select-sm w-auto"
+          value={sort}
+          onChange={e => setSort(e.target.value)}
+        >
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
+        </select>
+      </div>
+
       {loading ? (
         <div className="flex justify-center">
           <span className="loading loading-spinner loading-lg"></span>
         </div>
-      ) : medicines.length === 0 ? (
+      ) : sortedMedicines.length === 0 ? (
         <div className="text-center text-error">No medicines found.</div>
       ) : (
         <>
           {/* Card grid for mobile/tablet, table for desktop */}
           <div className="block md:hidden">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {medicines.map((medicine, idx) => (
+              {sortedMedicines.map((medicine, idx) => (
                 <div key={medicine._id || idx} className="card bg-base-100 shadow-md flex flex-col h-full">
                   <div className="flex flex-col items-center p-4">
                     <img
@@ -133,7 +154,7 @@ function Shop({ onAddToCart }) {
                 </tr>
               </thead>
               <tbody>
-                {medicines.map((medicine, idx) => (
+                {sortedMedicines.map((medicine, idx) => (
                   <tr key={medicine._id || idx}>
                     <td>{idx + 1}</td>
                     <td>

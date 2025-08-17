@@ -7,13 +7,13 @@ import { Navigation, Autoplay } from "swiper/modules";
 export default function BannerSlider({ banners = [] }) {
   if (!banners.length) return null;
   return (
-    <section className="mt-4 lg:pl-10 lg:pr-10">
+    <section className="mt-4 lg:pl-10 lg:pr-10 min-h-[80vh] flex items-center">
       <Swiper
         modules={[Navigation, Autoplay]}
         navigation
         loop
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        className="h-60 sm:h-72 md:h-80 w-full rounded-none overflow-hidden shadow-lg"
+        className="h-[60vh] sm:h-[70vh] md:h-[80vh] w-full rounded-none overflow-hidden shadow-lg"
       >
         {banners.map((b, idx) => (
           <SwiperSlide key={b._id || idx} className="w-full">
@@ -21,7 +21,7 @@ export default function BannerSlider({ banners = [] }) {
               <img
                 src={b.image}
                 alt={b.title}
-                className="h-32 sm:h-40 w-auto object-contain rounded-lg md:mr-8 mb-4 md:mb-0"
+                className="h-32 sm:h-40 md:h-64 lg:h-72 w-auto object-contain rounded-lg md:mr-8 mb-4 md:mb-0"
               />
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-primary mb-2">{b.title}</h3>

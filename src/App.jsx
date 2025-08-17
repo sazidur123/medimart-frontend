@@ -20,6 +20,10 @@ import PrivateRoute from "./routes/PrivateRoute";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import UpdateProfile from "./components/UpdateProfile";
+import About from "./pages/About";
+import Support from "./pages/Support";
+import Prescription from "./pages/Prescription";
+import MyOrders from "./pages/MyOrders";
 
 function AppContent() {
   const [user, setUser] = useState(null);
@@ -280,6 +284,10 @@ function AppContent() {
           />
           <Route path="/login" element={<Login setUser={handleLogin} />} />
           <Route path="/signup" element={<SignUp setUser={handleLogin} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/prescription" element={<Prescription />} />
+          <Route path="/orders" element={<MyOrders user={user} />} />
         </Routes>
       </main>
       <Footer />

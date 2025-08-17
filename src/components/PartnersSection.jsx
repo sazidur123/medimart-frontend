@@ -2,8 +2,8 @@ import React from "react";
 
 export default function PartnersSection() {
   return (
-    <section className="my-10 w-full px-2 sm:px-4 md:px-8">
-      <div className="max-w-6xl mx-auto rounded-2xl p-4 sm:p-8 bg-gradient-to-br from-indigo-50 via-white to-blue-50 shadow-lg">
+    <section className="mt-4 lg:pl-10 lg:pr-10">
+      <div className="w-full rounded-2xl p-4 sm:p-8 bg-gradient-to-br from-indigo-50 via-white to-blue-50 shadow-lg">
         <h2 className="text-2xl sm:text-3xl font-extrabold mb-8 text-indigo-700 text-center tracking-tight drop-shadow">Our Trusted Partners</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 items-center justify-items-center w-full">
           <div className="bg-white rounded-xl shadow p-3 flex items-center justify-center w-full h-20 transition-transform hover:-translate-y-1 hover:shadow-xl">
@@ -24,7 +24,6 @@ export default function PartnersSection() {
           <div className="bg-white rounded-xl shadow p-3 flex items-center justify-center w-full h-20 transition-transform hover:-translate-y-1 hover:shadow-xl">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwRSwQuAhnSq-2mzFv_JIfcLIoIAKJde0I_g&s" alt="Partner 3" className="h-12 object-contain max-w-full" />
           </div>
-          
         </div>
       </div>
     </section>

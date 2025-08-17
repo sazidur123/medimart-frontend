@@ -211,7 +211,7 @@ function Navbar({ user, onLogout, cartCount = 0 }) {
                   </li>
                   <li>
                     <Link
-                      to="/update-profile"
+                      to="/dashboard/profile"
                       onClick={() => setOpen(false)}
                       className="px-4 py-2 rounded hover:bg-primary hover:text-white"
                     >
